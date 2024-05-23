@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace Laba29
 {
-    internal class Phone:INotifyPropertyChanged
+    public class Phone:INotifyPropertyChanged
     {
-        private string title;
-        private string company;
+        private string? title;
+        private string? company;
         private int price;
         public string Title
         {
@@ -36,7 +36,7 @@ namespace Laba29
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName]string prop="")
+        public void OnPropertyChanged([CallerMemberName]string prop="")
         {
             if (PropertyChanged!=null)
             {
