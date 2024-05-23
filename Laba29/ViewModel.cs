@@ -56,7 +56,7 @@ namespace Laba29
             set
             {
                 selectedPhone = value;
-                OnPropertyChanged();
+                OnPropertyChanged("SelectedPhone");
             }
         }
         public event PropertyChangedEventHandler? PropertyChanged;
