@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Laba29
 {
-    class PhoneViewModel
+    public class PhoneViewModel
     {
         private Phone phone;
         public PhoneViewModel(Phone p)
@@ -37,7 +37,7 @@ namespace Laba29
                 OnPropertyChanged("Price");
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop="")
         {
             if(PropertyChanged!=null)
