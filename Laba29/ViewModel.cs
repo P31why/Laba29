@@ -6,7 +6,7 @@ namespace Laba29
 {
     public class ViewModel:INotifyPropertyChanged
     {
-        private Phone selectedPhone;
+        private Phone? selectedPhone;
         public ObservableCollection<Phone> Phones { get; set; }
         private RelayCommand addCommand;
         public RelayCommand AddCommand
@@ -29,7 +29,7 @@ namespace Laba29
                 return removeCommand ??
                   (removeCommand = new RelayCommand(obj =>
                   {
-                      Phone phone = obj as Phone;
+                      Phone? phone = obj as Phone;
                       if (phone != null)
                       {
                           Phones.Remove(phone);
@@ -47,7 +47,7 @@ namespace Laba29
                 new Phone {Title="Galaxy S7 Edge", Company="Samsung", Price =60000 },
                 new Phone {Title="Elite x3", Company="HP", Price=56000 },
                 new Phone {Title="Mi5S", Company="Xiaomi", Price=35000 },
-                 new Phone {Title="POCOx5_4k", Company="Xiaomi", Price=99999999 }
+                new Phone {Title="POCOx5_4k", Company="Xiaomi", Price=99999999 }
             };
         }
 
