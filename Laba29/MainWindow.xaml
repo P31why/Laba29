@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Laba29" d:DataContext="{d:DesignInstance Type=local:ViewModel}"
+        xmlns:local="clr-namespace:Laba29"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
@@ -27,22 +30,22 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="0.2*" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Phones}"
-                 SelectedItem="{Binding SelectedPhone}">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Phones, UpdateSourceTrigger=PropertyChanged}"
+                 SelectedItem="{Binding SelectedPhone, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Title}" />
-                        <TextBlock Text="{Binding Path=Company}" />
-                        <TextBlock Text="{Binding Path=Price}" />
+                        <TextBlock FontSize="18" Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Company, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Command="{Binding AddCommand}">+</Button>
-            <Button Command="{Binding RemoveCommand}"
-                    CommandParameter="{Binding SelectedPhone}">-</Button>
+            <Button Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}">+</Button>
+            <Button Command="{Binding RemoveCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="{Binding SelectedPhone, UpdateSourceTrigger=PropertyChanged}">-</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">

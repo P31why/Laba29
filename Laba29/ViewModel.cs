@@ -9,7 +9,7 @@ namespace Laba29
         private Phone selectedPhone;
         public ObservableCollection<Phone> Phones { get; set; }
         private RelayCommand addCommand;
-        public RelayCommand AddComand
+        public RelayCommand AddCommand
         {
             get
             {
@@ -22,7 +22,7 @@ namespace Laba29
             }
         }
         private RelayCommand removeCommand;
-        public RelayCommand RemoveComand
+        public RelayCommand RemoveCommand
         {
             get
             {
@@ -46,7 +46,8 @@ namespace Laba29
                 new Phone { Title="iPhone 7", Company="Apple", Price=56000 },
                 new Phone {Title="Galaxy S7 Edge", Company="Samsung", Price =60000 },
                 new Phone {Title="Elite x3", Company="HP", Price=56000 },
-                new Phone {Title="Mi5S", Company="Xiaomi", Price=35000 }
+                new Phone {Title="Mi5S", Company="Xiaomi", Price=35000 },
+                 new Phone {Title="POCOx5_4k", Company="Xiaomi", Price=99999999 }
             };
         }
 
@@ -60,7 +61,7 @@ namespace Laba29
             }
         }
         public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop="")
+        public void OnPropertyChanged(string prop="")
         {
             if(PropertyChanged!=null)
             {
