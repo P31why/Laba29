@@ -7,6 +7,7 @@ namespace Laba29
     public class ViewModel:INotifyPropertyChanged
     {
         private Phone? selectedPhone;
+        private Random r = new();
         public ObservableCollection<Phone> Phones { get; set; }
         private RelayCommand addCommand;
         public RelayCommand AddCommand
@@ -18,6 +19,7 @@ namespace Laba29
                     Phone phone = new Phone();
                     Phones.Insert(0,phone);
                     SelectedPhone = phone;
+                    phone.Price = r.Next(1000, 99999);
                 }));
             }
         }
